@@ -1,5 +1,5 @@
 
-SQL basics
+---------SQL basics---------
 
 1. select * from (table_name)
 
