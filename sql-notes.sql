@@ -19,4 +19,6 @@ SQL basics
    DELETE FROM table_name WHERE condition;
    DELETE FROM orders WHERE order_id = 1005;
 
-8. 
+8. ORDER BY - Sort results
+   SELECT * FROM products ORDER BY price DESC;  -- Descending order
+   SELECT * FROM employees ORDER BY last_name ASC;  -- Ascending (default)
