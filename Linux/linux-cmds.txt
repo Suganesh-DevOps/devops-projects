@@ -1,0 +1,41 @@
+
+-- always good to start with basics
+1. ls -> listing
+2. ls -t 
+3. ls -R it will list all the sub directories also
+    root@DESKTOP-BA3EH26:~/git-works# ls -R
+
+    ./Linux:
+     linux-cmds.txt
+
+    ./python:
+    function.py  sample.py
+
+4. ls -F --> ls -F (Append file type indicators)
+for example
+      root@DESKTOP-BA3EH26:~/git-works# ls -F
+      Linux/  README.md  python/  sql-notes.sql*
+      / --> dir, *--> excutable, 
+
+5. To list all directories and subdirectories under /
+   
+   ls -R or ls -lrthR
+
+--------------------------------------------------------------
+------------grep-------------
+-We know grep is for text filtering but we should know what all are the different option that we can use in "grep"-
+1. grep -i "" --> Case-Insensitive Search 
+2. grep -o "" --> 
+3. grep -v "success" log.txt --> Shows lines **not** containing "success"
+4. grep -c "warning" log.txt     # Counts how many lines contain "warning"
+5. grep -n "fatal" log.txt       # Displays line numbers with matches
+6. grep -r "TODO" /home/user/    # Searches all files recursively in a directory --> Important command u can get this question interview
+7. grep -e "error" -e "fail" log.txt   # Searches for "error" **or** "fail"
+8. grep -E "error|fail" log.txt  # Same as above, using regex OR (`|`)
+9. grep -B 3 "crash" log.txt   # Shows 3 lines **before** each match
+10. grep -A 2 "exception" log.txt # Shows 2 lines **after** each match
+11. grep -C 1 "panic" log.txt   # Shows 1 line **before and after** each match
+12. grep -l "pattern" *.log       # Lists filenames containing "pattern" (not the lines)
+13. grep -m 5 "error" log.txt     # Stops after 5 matches
+
+------------awk-------------
