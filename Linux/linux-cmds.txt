@@ -39,3 +39,26 @@ for example
 13. grep -m 5 "error" log.txt     # Stops after 5 matches
 
 ------------awk-------------
+1.  Line operations
+To print line number - NR
+field count - NF
+$0 --> will print everything
+awk ' {print NR, NF, $0}' example.log
+
+2. to sum partiular column, please use below command
+awk '{ sum += $1} END { print sum}' example.log
+
+3. conditional
+ awk '{if ($1 > 102) print "High:", $0; else print "Low:", $0}' example.log
+here if condition and followed by print statement
+else followed by print statement
+
+4. loop
+
+ awk '{for(i=1; i<=NF; i++) print "field", i, ":", $i}' example.log
+HERE for 'i' used for doing incremental, when i =1 it will check in the field one 
+
+5. BEGIN and END
+awk 'BEGIN {print "start"} {print $0} END {print "end"} '
+
+6. awk '!seen[$0]++' file.txt           # Remove duplicates
