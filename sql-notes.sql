@@ -1,6 +1,5 @@
 
 ---------SQL basics---------
-
 1. select * from (table_name)
 
 2. select column1 , column2 from table_name;

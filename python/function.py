@@ -175,10 +175,157 @@ def fibnoci(n):
 fibnoci(10)
 '''
 
-
+'''
 def dup(a):
     set1 = set(a)
     new_list = list(set1)
     print(new_list)
 a = [2, 3, 5, 3, 2, 1]
 dup(a)
+
+'''
+
+'''
+a = input("ENter a list")
+b = int(input("ENter a target"))
+
+mylist = list(map(int, a.split()))
+
+found = False
+for i in range(len(mylist)):
+    for j in range(i+1, len(mylist)):
+      if mylist[i] + mylist[j] == b:
+             print("found")
+             found = True
+if not found:
+    "Nothing found"
+
+'''
+
+'''
+palanendrom for number
+
+def pal(num):
+    num1 = str(num)
+    return num1 == num1[::-1]
+    
+
+print(pal(55))
+
+'''
+'''
+
+def pyramid(num):
+    for i in range(num):
+        space = ' ' * (num - i -1)
+        star = '*' * (2 * i + 1)
+        print(space + star + space)
+
+pyramid(10)
+
+'''
+'''
+def rev(s):
+    new = ''
+    for i in s:
+        new = i + new
+    print(new)
+
+rev('sugu')
+
+'''
+'''
+def fact(num):
+    num1 = 1
+    for i in range(1, num+1):
+        num1 = i * num1
+    print(num1)
+
+
+fact(100)
+'''
+'''
+def pal(string):
+    return string == string[::-1]  
+
+print(pal('sir'))
+'''
+'''
+# fizzbuzz
+# Print numbers 1-100, but for multiples of 3, print "Fizz"; for 5, "Buzz"; for both, "FizzBuzz".
+
+for i in range(1, 101):
+    if i % 3 == 0 and i % 5 == 0:
+        print(f"{i} - Fizzbuzz")
+    elif i % 5 == 0:
+        print(f"{i} - Fizz")
+    elif i % 3 == 0:
+        print(f"{i} - buzz")
+'''
+'''
+In = [2, 7, 11, 15]
+target = 9
+
+for i in range(len(In)):
+    for j in range(i+1, len(In)):
+        if In[i] + In[j] == target:
+            print(f"{i}, {j}")
+'''
+
+'''
+def word_count(string):
+    char_count = {}
+    for char in string:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+             char_count[char] = 1
+    return char_count
+    print(char_count)
+
+print(word_count('Kiruthik devi oru lusu'))
+'''
+
+'''
+def nonrepeating(string):
+    char_count = {}
+    for char in string:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+             char_count[char] = 1
+    for ch in string:
+        if char_count[ch] == 1:
+           return ch
+           break
+        
+print(nonrepeating('sugu'))
+
+'''
+'''
+2. Best Time to Buy and Sell Stock
+Given an array of prices where prices[i] is the price of a given stock on the ith day, find the maximum profit you can achieve.
+
+def max_profit(q):
+    m = q[0]
+    h = 0
+
+    for i in q[1:]:
+        if i < m:
+            m = i
+        else:
+            h = max(h, i-m )
+    return(h)
+
+print(max_profit([1, 3, 4, 5, 7]))
+
+'''
+
+def arr(ls):
+    ls = set(ls)
+    print(list(ls))
+    
+
+
+
+print(arr([1, 2, 3, 5, 6, 6, 7, 7]))
