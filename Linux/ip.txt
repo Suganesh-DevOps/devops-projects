@@ -1,0 +1,35 @@
+
+Before getting into know other stuff please understand the very basics
+1. What is Network ?
+A network is a group of two or more connected devices (like computers, servers, phones, printers) 
+ simply --> A network connects devices locally, for example 
+2. What is Internet ?
+The Internet is a global network of computers that are connected together to communicate, share information, and access services.
+ simply --> the Internet connects millions of networks globally.
+--IP--
+IP --> Internet protocal address
+Types of IP address
+   1. IPV4
+   2. IPV6
+
+ IPV4
+   it is a 32 bit numeric address and separted by dot
+   176.8.122.2 --> each numer is a byte tottaly 4 bytes.
+              Why it is only 4 bytes ?
+              It is because of IPV4 protocal when they designed
+  
+
+--Subnet--
+Dividing larger newwork into  smaller part
+   What is the use ?
+     1. security
+     2. privacy
+     3. To reduce IP address waste
+
+     Every IP address has 
+         1. newwork part (To identify to which network it is belongs to)
+         2. Host part (to identify the Host)
+    Subnet adds more bits on network part --> which means {{172.62}.2}.8 -->  {{172.62}.2} this is network part --> .8 for host part
+     so that we can create a range of servers as per of need.
+     This all can be done using (Classless Inter-Domain Routing) --> CIDR
+
