@@ -1,0 +1,32 @@
+--DNS--
+
+What I understood in OSI model is
+1. when I hit www.google.com in browser the request will be sent as a http/s protocal in "Application Layer"
+2. The request that I made in my browser will me manipulated and encrypted format that the Application server can understand as well as get rid of hackers - "Presentation layer"
+3. Once data is segmented browser Application will establish a session to communicate with Application server - Session layer
+4. It retrives the data from session layer and it will break into a segment and add port to route a particular server -> transport layer
+5. it will find the correct way to send the request across network --> network layer
+6. It will make sure data is sent to a correct device
+7. physical cables, wi-fi signals
+
+Application layer
+my request
+
+Presentation Layer
+data encryption, data formating so that network server will understand the request
+
+Session layer
+establish a connection to communicate with Application server
+
+transport layer
+it will act as error detection , it will take care of complete data transmission, it will segment the data into smaller part along with it will add the port to where the request gonna being sent.
+
+network layer
+it will look for the best way to sent the data for example
+from our browser to our wifi router
+
+data link
+it will be the MAC device for example from our wifi to other devoce within the same network
+
+physical layers
+cables, signals and so on

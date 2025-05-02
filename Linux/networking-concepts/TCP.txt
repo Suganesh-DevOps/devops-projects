@@ -1,0 +1,118 @@
+TCP (Transmission Control Protocol) - Complete Breakdown
+TCP is a reliable, connection-oriented protocol that ensures data is delivered accurately and in order. It’s used for web browsing (HTTP/HTTPS), emails (SMTP), file transfers (FTP), and more.
+
+1. Key Features of TCP
+✅ Reliable Delivery – Resends lost packets.
+✅ Connection-Oriented – Establishes a link before sending data (3-way handshake).
+✅ Flow Control – Prevents overwhelming the receiver.
+✅ Error Detection – Checksum detects corrupted data.
+✅ Ordered Data – Reassembles packets in the correct sequence.
+
+2. How TCP Works
+Step 1: Connection Establishment (3-Way Handshake)
+Before sending data, TCP sets up a connection:
+
+SYN → Client sends a "synchronize" request.
+
+SYN-ACK → Server acknowledges and responds.
+
+ACK → Client confirms, and the connection opens.
+
+📌 Example:
+
+You (Client) → "Can we talk?" (SYN)
+
+Google (Server) → "Sure, let’s talk!" (SYN-ACK)
+
+You → "Okay, here’s my data!" (ACK)
+
+Step 2: Data Transmission (Segmentation & Sequencing)
+Breaks data into "segments" (smaller chunks).
+
+Each segment has:
+
+Sequence Number (to reassemble in order).
+
+ACK Number (confirms received packets).
+
+Checksum (error detection).
+
+📌 Example:
+Sending a large file? TCP splits it into segments like puzzle pieces, numbers them, and sends them one by one.
+
+Step 3: Acknowledgment (ACK) & Retransmission
+Receiver sends ACK for each received segment.
+
+If sender doesn’t get an ACK, it retransmits the lost packet.
+
+📌 Example:
+
+You send Packet 1, 2, 3.
+
+Server gets 1 & 3 but 2 is lost.
+
+Server asks for Packet 2 again (Retransmission).
+
+Step 4: Flow Control (Sliding Window)
+Prevents sender from flooding the receiver.
+
+Receiver tells sender: "I can handle X packets at a time!"
+
+📌 Example:
+
+If the receiver is slow (e.g., weak Wi-Fi), TCP slows down data flow.
+
+Step 5: Connection Termination (4-Way Handshake)
+When done, TCP closes the connection gracefully:
+
+FIN → "I’m done sending!"
+
+ACK → "Got it, but I might still send data."
+
+FIN → "Now I’m done too!"
+
+ACK → "Goodbye!"
+
+📌 Example:
+
+You → "I’m done!" (FIN)
+
+Google → "Okay, but wait—I’m still sending." (ACK)
+
+Google → "Now I’m done too!" (FIN)
+
+You → "Bye!" (ACK)
+
+3. TCP Headers (What’s Inside a TCP Segment?)
+Field	Purpose
+Source Port	Sender’s port (e.g., 54321).
+Dest. Port	Receiver’s port (e.g., 443 for HTTPS).
+Sequence #	Orders packets for reassembly.
+ACK #	Confirms received packets.
+Checksum	Detects corrupted data.
+Window Size	Flow control (how much data receiver can handle).
+Flags	SYN, ACK, FIN (control signals).
+4. TCP vs. UDP
+Feature	TCP	UDP
+Reliability	✅ Resends lost packets.	❌ No retransmission.
+Ordering	✅ Reorders packets.	❌ No sequencing.
+Speed	⚠️ Slower (overhead).	⚡ Faster (no ACKs).
+Use Cases	Web, Email, FTP.	Video calls, Gaming, DNS.
+5. Common TCP Protocols
+HTTP (Port 80) – Web browsing.
+
+HTTPS (Port 443) – Secure web browsing.
+
+FTP (Port 21) – File transfers.
+
+SMTP (Port 25) – Sending emails.
+
+SSH (Port 22) – Secure remote login.
+
+6. TCP Problems & Fixes
+⚠️ Problem: Slow Start (TCP starts sending data slowly to avoid congestion).
+🔧 Fix: TCP Cubic (modern algorithm for faster speeds).
+
+⚠️ Problem: Head-of-Line Blocking (one lost packet delays others).
+🔧 Fix: QUIC (HTTP/3) – Uses UDP to avoid this.
+
