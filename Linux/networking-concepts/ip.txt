@@ -32,4 +32,73 @@ Dividing larger newwork into  smaller part
     Subnet adds more bits on network part --> which means {{172.62}.2}.8 -->  {{172.62}.2} this is network part --> .8 for host part
      so that we can create a range of servers as per of need.
      This all can be done using (Classless Inter-Domain Routing) --> CIDR
+------------------------------------------------------------------------
+How to trouble shoot the network connectivity in a linux server ?
 
+using "ip addr"
+it will show like below when u run the above command
+root@DESKTOP-BA3EH26:~# ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet 10.255.255.254/32 brd 10.255.255.254 scope global lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc mq state UP group default qlen 1000
+    link/ether 00:15:5d:a5:32:0d brd ff:ff:ff:ff:ff:ff
+    inet 172.25.71.146/20 brd 172.25.79.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::215:5dff:fea5:320d/64 scope link
+       valid_lft forever preferred_lft forever
+	   
+	   in this
+	      - LOOPBACK is used for internal communication of a system
+		  - eth0 is the 1st level of network interface.
+		  
+		  to show the particular network interface --> ip addr show eth0
+		                                               ip add show lo
+ how to troubleshoot incase eth0 is down ?
+ eth0: <BROADCAST,MULTICAST,DOwN,LOWER_UP> mtu 1450 qdisc mq state UP group default qlen 1000
+    sudo ifconfig eth0 up --> to make it up..
+	if then also not comming up means try restaring the eth0 network interface.
+	- restart
+	sudo ifdown eth0
+	sudo ifup eth0
+	
+	- for force restart
+	sudo ifdown --force eth0
+    sudo ifup --force eth0
+     
+    - how to request a IP for eth0 if does not have one means
+	  sudo dhclient eth0
+	  
+    - How to check the default route in system
+	  ip route
+	  it should contain default gateway to communicate outside network
+	 
+	- traceroute
+      Displays the route packets take to reach a destination, showing each hop along the way.
+
+
+--PORTS--
+A port is a 16-bit number (ranging from 0 to 65535)
+   "ss tuln"
+	t - TCP
+	u - UDP
+	L - Listnening 
+	n - Show numeric addresses
+	
+	to check which service/process using a specific port
+	"sudo lsof -i :22"
+	lsof will print all of the available port. 
+	
+	How to allow a port to access. for example
+	
+	sudo ufw enable "port"
+	sudo ufw deny "port"
+	
+	
+	
+	  

@@ -285,7 +285,6 @@ def word_count(string):
 
 print(word_count('Kiruthik devi oru lusu'))
 '''
-
 '''
 def nonrepeating(string):
     char_count = {}
@@ -320,12 +319,76 @@ def max_profit(q):
 print(max_profit([1, 3, 4, 5, 7]))
 
 '''
+'''
 
-def arr(ls):
-    ls = set(ls)
-    print(list(ls))
+def longest(string):
+    ls = string.split()
+
+    max = 0
+    max_str = ''
+    for i in ls:
+        if len(i) > max:
+            max = len(i)
+            max_str = i
+    print(max_str, max)
+
+longest("Sugu rohit abcsgegi kjoiajojalmaiouao joiaoiyoahlDJH9R9Hkljifgbk ")
+'''
+
+'''
+FInd median of the sorted array
+
+def median(num1, num2):
+
+    new_list = sorted(num1 + num2)
+
+    n = len(new_list)
     
+    if n % 2 == 1:
+        return new_list[n // 2]
+    else:
+        m1 = new_list[n // 2-1]
+        m2 = new_list[n // 2]
+        return (m1 + m2) / 2
+
+num1 = [1, 3, 4, 5, 6]
+num2 = [3, 5, 99]
+
+print(median(num1, num2))
+
+'''
+'''
+Product of Array Except Self – LeetCode #238
+Return array where each element is product of all others.
+
+def product(n):
+   new_arr = [] 
+
+   for i in range(len(n)):
+        product = 1
+        temp = n[:i] + n[i+1:]
+        for j in temp:
+            product *= j
+        new_arr.append(product)
+   return new_arr
 
 
 
-print(arr([1, 2, 3, 5, 6, 6, 7, 7]))
+
+arr = [1, 2, 3, 4, 5]
+print(product(arr))
+'''
+'''
+def count(string):
+    dict = {}
+    for char in string:
+        if char in dict:
+            dict[char] +=1
+        else:
+            dict[char] = 1
+    print(dict)
+
+print(count("abcd"))
+'''
+
+print(int(1000**0.5))

@@ -1,0 +1,73 @@
+
+HTTP and HTTPS
+HTTP - 
+What is HTTP ?
+   - It is an application-layer protocol that defines how clients (like web browsers) request data from servers and how servers respond to those requests.
+   - Stateless 
+   - it follows client and servers
+
+HTTP request format
+
+GET /index.html HTTP/1.1
+HOST: www.google.com
+connection : Keep-alive
+Upgrade-insecure-Request: 1
+user-agent: our browsers
+accept-encoding: gzip, deflate, br
+accept-language: English
+accept-content: HTML, XML so on
+
+GET - Retrive Data
+PUT - Update data
+POST - Submit data
+DELETE - Remove Data
+PATCH - Partial Updates
+OPTIONS - List all available option in the client server
+HEAD - List all headers
+
+HTTP response
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1234
+
+<!DOCTYPE html>
+<html>...</html>
+
+Status codes
+1xx (Informational)
+   100 - continue
+   101 - Switch protocols
+2xx - (Success)
+   200 - Standard success response
+   201 - Created
+   202 -  accepted (Request accepted but not yet processed (common in async tasks))
+   204 - Success, but no response body (e.g., after a DELETE request).
+3xx - (Redirection)
+   301 - The request has multiple possible responses 
+   302 - Moved Permanently (The URL has permanently moved (SEO-friendly, updates browser cache))
+   303 - 
+4xx -  (Client Errors) – Request Was Invalid
+   400 - Bad request (Syntax error)
+   401 - Unauthorized
+   402 - Payment Required
+   403 - Forbidden
+   404 - Not found
+   405 - Wrong HTTP method
+   406 - Not acceptable
+   408 - Request timeout
+   409 - Conflict
+   410 - same as 404
+   429 - Too many requests
+   451 - Unavailable for leagal reasons
+5xx (Server Errors) – Server Failed
+   500 - Internal server error
+   501 - Not implemented
+   502 - Bad Gateway
+   503 - Service Unavailable
+   504 - Gateway timeout
+   505 - HTTP Version Not Supported
+
+HTTPS 
+It is also same as HTTP but it will be secured
+The request that sent from client application it self encrypted
+
