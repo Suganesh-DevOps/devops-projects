@@ -100,4 +100,12 @@ kill -3 to take java thread dumps
   - start
  kill -CONT pid
 
- 
+  - prioratize or deprioratize
+    pri
+      renice -n -10 "pid"
+    de pri
+      renice -n 19 "pid"
+    to check current nices
+      ps -o pid,ni,comm -p <PID>
+special process are service which we run using system ctl
+* systemctl list-units --type=service
