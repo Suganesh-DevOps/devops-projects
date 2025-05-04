@@ -145,4 +145,4 @@ mount -o remount,rw /mnt – Remount a partition as read-write
 ------------------------------------
 to get the CPU count
 --> nproc
-    top, htop, vmstat, 
+    top, htop, vmstat, mpstat
