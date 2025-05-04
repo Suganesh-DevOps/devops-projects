@@ -1,5 +1,5 @@
 
---data structure--
+---data structure---
 List 
    1. ordered
    2. Mutable
