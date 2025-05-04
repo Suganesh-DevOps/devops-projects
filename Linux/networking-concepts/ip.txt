@@ -1,3 +1,5 @@
+https://devopscube.com/list-linux-networking-troubleshooting-and-commands-beginners/#1-hostname
+
 
 Before getting into know other stuff please understand the very basics
 1. What is Network ?
