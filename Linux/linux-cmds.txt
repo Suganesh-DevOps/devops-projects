@@ -109,3 +109,35 @@ kill -3 to take java thread dumps
       ps -o pid,ni,comm -p <PID>
 special process are service which we run using system ctl
 * systemctl list-units --type=service
+
+--------Disk Management------------
+Disk (HDD/SSD) → Permanent storage for files and OS.
+Partition → Logical division of a disk (like separate "drives").
+Memory (RAM) → Fast, temporary storage for running programs.
+
+How to troubleshoot disk ?
+ 1. 
+lsblk -->  lists all block devices (disks, partitions, etc.) 
+Make your self clear when!
+what is the command which used to list all the block of device ? it is "lsblk"
+
+2.
+df -h – Check disk space usage
+
+3. 
+du -sh /path – Show size of a directory
+------------------------------------
+Partions:-
+for now just get into know how to check partions ?
+lsblk
+why we need partions?
+✅ Isolation → Protect system files from user/data corruption.
+✅ Performance → Optimize filesystems for different tasks.
+✅ Flexibility → Resize, reformat, or reinstall without losing everything.
+-----------------------------------
+Mounting
+Mounting is the process of attaching a storage device (like a hard drive, USB stick, CD, partition, or ISO file) to the Linux filesystem, so you can access and use its files.
+
+mount /dev/sdX1 /mnt – Mount a partition
+umount /mnt – Unmount a partition
+mount -o remount,rw /mnt – Remount a partition as read-write
