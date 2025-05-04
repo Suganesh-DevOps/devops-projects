@@ -77,3 +77,9 @@ sed '/pattern/d' file.txt        # Delete lines with 'pattern'
 sed -n '5p' file.txt             # Print line 5
 sed '2i\text' file.txt           # Insert before line 2
 sed '$a\text' file.txt           # Append at end
+
+---------Process--------
+1. view the process
+2. Kill process
+3. prioratize or deprioratize
+

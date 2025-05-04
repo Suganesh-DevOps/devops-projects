@@ -32,8 +32,15 @@ Dividing larger newwork into  smaller part
     Subnet adds more bits on network part --> which means {{172.62}.2}.8 -->  {{172.62}.2} this is network part --> .8 for host part
      so that we can create a range of servers as per of need.
      This all can be done using (Classless Inter-Domain Routing) --> CIDR
+<<<<<<< HEAD
 ------------------------------------------------------------------------
 How to trouble shoot the network connectivity in a linux server ?
+=======
+     172.33.2.0/24 --> 256 serers
+     172.33.2.0/30 --> 4 servers
+     and so on..
+  
+>>>>>>> 511c8b9c5209f691ded0bd39a848917f1ad002a7
 
 using "ip addr"
 it will show like below when u run the above command
