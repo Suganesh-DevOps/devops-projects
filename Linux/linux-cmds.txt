@@ -141,3 +141,8 @@ Mounting is the process of attaching a storage device (like a hard drive, USB st
 mount /dev/sdX1 /mnt – Mount a partition
 umount /mnt – Unmount a partition
 mount -o remount,rw /mnt – Remount a partition as read-write
+
+------------------------------------
+to get the CPU count
+--> nproc
+    top, htop, vmstat, 
