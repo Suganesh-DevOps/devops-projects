@@ -1,5 +1,5 @@
 
--- always good to start with basics
+-- always good to start with basics---
 1. ls -> listing
 2. ls -t 
 3. ls -R it will list all the sub directories also
