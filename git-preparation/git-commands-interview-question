@@ -1,1 +1,270 @@
+1. Basic Git Concepts
+Q1: What is version control, and why is it important?
+Answer:
+Version control is a system that records changes to files over time, allowing you to track history, revert to previous versions, and collaborate efficiently. It is important because:
+
+History Tracking: See who made changes and when.
+
+Collaboration: Multiple developers can work on the same project.
+
+Recovery: Revert to a working version if something breaks.
+
+Branching & Experimentation: Work on features without affecting the main codebase.
+
+Q2: Explain the difference between Git and GitHub.
+Answer:
+
+Git	GitHub
+A distributed version control system (DVCS) for tracking changes locally.	A cloud-based hosting service for Git repositories.
+Runs on your computer.	Runs on the web (github.com).
+Manages version history.	Adds collaboration features (Pull Requests, Issues, CI/CD).
+Open-source and free.	Free for public repos; paid for private ones.
+Q3: What are the three main stages in Git?
+Answer:
+
+Working Directory: Where you edit files (untracked/modified).
+
+Staging Area (Index): Files marked for the next commit (git add).
+
+Repository (Commit History): Permanently stored snapshots (git commit).
+
+Q4: What is a commit in Git?
+Answer:
+A commit is a snapshot of changes in the repository at a given time. It includes:
+
+A unique SHA-1 hash (e.g., a1b2c3d).
+
+A commit message describing changes.
+
+Author & timestamp.
+
+Example:
+
+bash
+git commit -m "Fix login bug"  
+Q5: How do you check the status of your Git repository?
+Answer:
+
+bash
+git status
+Shows untracked, modified, or staged files.
+
+Indicates if your branch is ahead/behind the remote.
+
+2. Git Commands
+Q6: What does git init do?
+Answer:
+Initializes a new Git repository in the current directory, creating a hidden .git folder.
+
+bash
+git init
+Q7: Explain the difference between git pull and git fetch.
+Answer:
+
+git fetch	git pull
+Downloads changes but does not merge.	Downloads changes and merges into your branch.
+Safe for reviewing changes first.	Automatically updates your working files.
+Example: git fetch origin	Example: git pull origin main
+Q8: How do you undo the last commit?
+Answer:
+
+bash
+git reset --soft HEAD~1  # Keeps changes staged  
+git reset --hard HEAD~1  # Discards changes completely  
+Q9: What does git clone do?
+Answer:
+Copies a remote repository to your local machine.
+
+bash
+git clone https://github.com/user/repo.git
+Q10: How do you view the commit history?
+Answer:
+
+bash
+git log          # Shows full history  
+git log --oneline  # Compact view  
+git log --graph   # Visual branch history  
+3. Branching & Merging
+Q11: What is a branch in Git?
+Answer:
+A branch is a separate line of development. It allows working on features/fixes without affecting main.
+
+Q12: How do you create and switch to a new branch?
+Answer:
+
+bash
+git branch new-feature    # Creates branch  
+git checkout new-feature  # Switches to it  
+# OR (shorthand):  
+git checkout -b new-feature  
+Q13: What is the difference between git merge and git rebase?
+Answer:
+
+git merge	git rebase
+Preserves commit history as-is.	Rewrites history for a linear timeline.
+Creates a merge commit.	Moves commits to the tip of the target branch.
+Safer for shared branches.	Cleaner history but riskier for teams.
+Q14: How do you resolve a merge conflict?
+Answer:
+
+Open the conflicted file.
+
+Edit to keep the correct changes (remove <<<<<<<, =======, >>>>>>>).
+
+Stage the resolved file:
+
+bash
+git add file.txt
+Commit:
+
+bash
+git commit -m "Resolved merge conflict"
+Q15: What is a fast-forward merge?
+Answer:
+A merge where Git simply moves the branch pointer forward (no new commit needed) because there are no divergent changes.
+
+4. GitHub Specific
+Q16: What is a Pull Request (PR)?
+Answer:
+A PR is a request to merge changes from one branch into another (often feature → main). It enables:
+
+Code review
+
+Discussions
+
+CI/CD checks
+
+Q17: How do you fork a repository on GitHub?
+Answer:
+
+Click Fork on the GitHub repo page.
+
+Clone your fork locally:
+
+bash
+git clone https://github.com/your-username/repo.git
+Q18: What is the purpose of a .gitignore file?
+Answer:
+It specifies files/folders Git should not track (e.g., logs, dependencies, secrets).
+
+Example:
+
+node_modules/  
+.env  
+*.log  
+Q19: What are GitHub Actions?
+Answer:
+A CI/CD (Continuous Integration/Deployment) tool for automating workflows (tests, builds, deployments).
+
+Q20: How do you contribute to someone else's open-source project?
+Answer:
+
+Fork the repo.
+
+Clone your fork.
+
+Create a branch for changes.
+
+Make changes & commit.
+
+Push to your fork.
+
+Open a Pull Request (PR) to the original repo.
+
+5. Scenario-Based Questions
+Q21: You committed sensitive info (like a password). How would you remove it?
+Answer:
+
+Rewrite history to remove the file:
+
+bash
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch secrets.txt' HEAD
+Force push (warning: affects collaborators):
+
+bash
+git push origin main --force
+Q22: How would you revert a repository to a specific commit?
+Answer:
+
+bash
+git checkout commit-hash  # Temporarily view old commit  
+git reset --hard commit-hash  # Permanently reset (caution: destructive)  
+Q23: Your git pull resulted in merge conflicts. How would you resolve them?
+Answer:
+
+Abort the merge (if needed):
+
+bash
+git merge --abort
+Manually edit conflicted files.
+
+Add & commit the resolved files.
+
+Q24: How do you update your local repo without merging immediately?
+Answer:
+Use git fetch to download changes but not merge:
+
+bash
+git fetch origin  
+git diff main origin/main  # Check differences  
+Q25: What if you made changes to the wrong branch?
+Answer:
+
+Stash changes:
+
+bash
+git stash
+Switch to the correct branch:
+
+bash
+git checkout correct-branch
+Apply stash:
+
+bash
+git stash pop
+6. Best Practices
+Q26: What makes a good commit message?
+Answer:
+
+Imperative tense ("Fix bug" not "Fixed bug").
+
+Short summary (<50 chars) + detailed body (if needed).
+
+Example:
+
+Improve login validation
+
+- Add email format check  
+- Show error message for invalid inputs  
+Q27: Why work on feature branches instead of directly on main?
+Answer:
+
+Keeps main stable.
+
+Isolates changes for easier review/testing.
+
+Prevents conflicts between developers.
+
+Q28: How often should you commit?
+Answer:
+
+Small, logical chunks (e.g., "Add button component").
+
+Frequently (avoid huge, untracked changes).
+
+Q29: What is the difference between git stash and git commit?
+Answer:
+
+git stash	git commit
+Temporarily shelves changes.	Permanently saves changes to history.
+No message required.	Requires a commit message.
+Useful for quick context switches.	Used for version control.
+Q30: Why pull before pushing?
+Answer:
+
+Ensures you have the latest changes.
+
+Reduces merge conflicts.
+
+Follows the collaborative workflow.
 
