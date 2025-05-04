@@ -82,4 +82,22 @@ sed '$a\text' file.txt           # Append at end
 1. view the process
 2. Kill process
 3. prioratize or deprioratize
+  
+   - view the process -
+to check the running process
+  ps aux 
+to count the running process
+  ps aux | nl (or) ps aux | wc -l
+what is the diff between ps aux amd ps -ef ?
+  we can see cpu and mem usage using "aux" not in -ef !
 
+  - kill process
+kill -9 -> force kill
+kill -3 to take java thread dumps
+
+  -  stop
+ kill -STOP pid
+  - start
+ kill -CONT pid
+
+ 
