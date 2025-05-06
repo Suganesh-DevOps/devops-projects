@@ -1,15 +1,77 @@
-Browser
-  ↓
-Stub Resolver
-  ↓
-Recursive Resolver (e.g., 8.8.8.8)
-  ↓
-Root DNS Server (.)
-  ↓
-TLD DNS Server (.com)
-  ↓
-Authoritative DNS Server (example.com)
-  ↓
-Returns IP to Recursive Resolver
-  ↓
-Returns IP to Browser
+*---------------------------------------------------------------------------------*
+|    Browser                                                                      |
+|       ↓                                                                         |
+|    OS (Stub Resolver)                                                           |
+|       ↓                                                                         |
+|    Configured DNS Resolver (e.g., ISP DNS or Public DNS like 8.8.8.8)           |
+|       ↓                                                                         |
+|    Recursive Resolver (performs below steps if no cache hit):                   |
+|         ├──> Root DNS Server                                                    |
+|         ├──> TLD Server (e.g., for .com, .org)                                  |
+|         └──> Authoritative Name Server (holds final answer)                     |
+|       ↓                                                                         |
+|    Recursive Resolver (stores result in its cache)                              |
+|       ↓                                                                         |
+|    OS Cache                                                                     |
+|       ↓                                                                         |
+|    Browser Cache                                                                |
+|       ↓                                                                         |
+|    Application/Web Page                                                         |
+*---------------------------------------------------------------------------------*
+
+Above is the flow ^
+------Recursive Resolver -----
+Takes a query from a client and does all the work to return the final IP.
+
+What is Stub Resolver ?
+It is A lightweight resolver in your OS or browser that just forwards requests to a recursive resolver.
+
+What is root DNS server ?
+oot DNS servers (e.g., .). example
+.com
+.net
+.in
+
+what is TLD name server?
+ it will be having authoritative name server
+
+what is  Authoritative DNS Server ?
+Authoritative DNS Server is the final source of truth that holds the actual DNS records for a domain name.
+
+- Our browser -> Stub resolver
+
+There are 2 types of DNS, 
+1. Private DNS resolver --> Google, Cloud fare
+2. Public resolver --> corporate DNS
+
+--Caching---
+caching in DNS!
+Why caching is taking place in DNS ?
+  --> Faster Domain Resolution
+  --> AVoid network traffic
+  --> Reducing load to DNS server
+  --> Fewer points of faikure
+  --> avoid latency
+  ---> TTL  Flexibility for Admins
+
+What is the disadvantages of caching ?
+   --> If  DNS has been changed to different IP we may have to revisit again 
+   --> if the cache has expired client will use oudated entries
+
+----Levels of caching----
+1. Browser level caching
+where it stored --> tored in-memory within the browser's DNS subsystem.
+
+2. OS level caching which Stub resolver
+Windows: Stored in DNS Client Service memory.
+Linux/macOS: Stored in memory by system resolver.
+
+3.Recursive resolver
+In-memory on the DNS server (like Google DNS or Cloudflare DNS).
+
+How to view the OS cache
+In Linux:
+systemd-resolve --statistics
+in windows:
+ipconfig /displaydns
+------------------------------------------------------------------------------------------
