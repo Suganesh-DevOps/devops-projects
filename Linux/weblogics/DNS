@@ -1,1 +1,15 @@
-
+Browser
+  ↓
+Stub Resolver
+  ↓
+Recursive Resolver (e.g., 8.8.8.8)
+  ↓
+Root DNS Server (.)
+  ↓
+TLD DNS Server (.com)
+  ↓
+Authoritative DNS Server (example.com)
+  ↓
+Returns IP to Recursive Resolver
+  ↓
+Returns IP to Browser
