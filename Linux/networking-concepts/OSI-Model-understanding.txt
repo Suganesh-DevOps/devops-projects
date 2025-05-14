@@ -1,30 +1,162 @@
-The purpose of the OSI model (Open Systems Interconnection model) is to provide a standardized framework for understanding and designing how different 
-networking protocols interact in a network communication system. It divides the communication process into seven distinct layers, each with specific functions, 
-to help developers and network engineers:
+🟣 Layer 7 – Application Layer
+📌 What it does:
+Provides a user interface and directly interacts with end-user software (like browsers, email clients).
 
-Application layer
-my request
+🔧 Responsibilities:
 
-Presentation Layer
-It will translate the data to understandable formet (json, XML)
+Interacts with software apps (e.g., browsers)
 
-Session
-It will establish
- manages
- terminates the connection between Applications
+Initiates network communication
 
-Transport layer
-It ensures reliability of data transmission via segmentation,
-sequencing
-acknowledgements
+Identifies communication partners
 
-networking
-look for the best way to route our packets,
-add IP addressing
+📦 Protocols/Examples:
 
-Data link
-it will make sure the data transmission between two connected device between the same network using MAC address
+HTTP/HTTPS – Web browsing
 
-physical
-t includes the physical hardware (cables, switches, electrical signals) that transmits raw bits.”
+FTP – File transfer
 
+DNS – Domain name resolution
+
+SMTP, IMAP, POP3 – Email services
+
+SSH – Secure shell access
+--------------------------------------------------------------
+🟣 Layer 6 – Presentation Layer
+📌 What it does:
+Responsible for data formatting, encryption, and compression — ensures the data is readable to the application.
+
+🔧 Responsibilities:
+
+Data translation (e.g., EBCDIC ↔ ASCII)
+
+Encryption/Decryption (TLS/SSL)
+
+Compression/Decompression (JPEG, MP4)
+
+📦 Examples:
+
+SSL/TLS – Secure data
+
+MPEG, JPEG – Media encoding
+
+ASCII, Unicode – Text encoding
+---------------------------------------------------------------------
+🟣 Layer 5 – Session Layer
+📌 What it does:
+Manages and controls connections (sessions) between computers.
+
+🔧 Responsibilities:
+
+Session creation, maintenance, termination
+
+Synchronization and checkpointing
+
+Dialog control (half-duplex or full-duplex)
+
+📦 Examples:
+
+NetBIOS
+
+RPC (Remote Procedure Call)
+
+SMB (partly operates here)
+--------------------------------------------------------------------
+🔵 Layer 4 – Transport Layer
+📌 What it does:
+Handles end-to-end communication, error recovery, and flow control between hosts.
+
+🔧 Responsibilities:
+
+Reliable or unreliable delivery
+
+Segmentation and reassembly of data
+
+Port addressing (e.g., port 80, 443)
+
+📦 Protocols:
+
+TCP – Reliable, ordered
+
+UDP – Fast, no guarantee
+
+SCTP – Stream control
+------------------------------------------------------------------------------
+🔵 Layer 3 – Network Layer
+📌 What it does:
+Handles routing and logical addressing (IP). Responsible for getting data from one network to another.
+
+🔧 Responsibilities:
+
+Packet forwarding and routing
+
+IP addressing (IPv4, IPv6)
+
+Fragmentation and reassembly
+
+Error reporting (via ICMP)
+
+📦 Protocols:
+
+IP (IPv4/IPv6)
+
+ICMP – Ping/Traceroute
+
+IGMP
+
+IPSec
+
+---------------------------------------------------------------------------------------
+🟢 Layer 2 – Data Link Layer
+📌 What it does:
+Ensures node-to-node reliable data transfer using MAC addresses.
+
+🔧 Responsibilities:
+
+Frame formatting
+
+MAC addressing
+
+Error detection and correction (CRC)
+
+Flow control
+
+📦 Sub-layers:
+
+LLC (Logical Link Control)
+
+MAC (Media Access Control)
+
+📦 Protocols/Tech:
+
+Ethernet
+
+PPP
+
+HDLC
+
+ARP
+
+Switches work here
+---------------------------------------------------------------------------------------
+🟢 Layer 1 – Physical Layer
+📌 What it does:
+Deals with the physical transmission of raw bits over media (cables, air, etc.)
+
+🔧 Responsibilities:
+
+Electrical/optical signaling
+
+Bit-by-bit delivery
+
+Physical media: fiber, copper, radio
+
+📦 Examples:
+
+Cables (Ethernet, fiber)
+
+Wi-Fi (physical radio layer)
+
+Hubs
+
+Network Interface Cards (NICs)
