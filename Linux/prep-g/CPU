@@ -2,4 +2,59 @@
 It is a Brain of an system and it performs computations.
 Now, a CPU can have multiple cores, making it a multi-core processor.
 
-top 
+top -u "username"
+top -p "pid"
+top -n 1 --> runs once
+top -d 5 --> to delay the or refresh it for every 5 sec's
+
+when we run the top command what all are the details we can find ?
+uptime 
+process status
+cpu usage
+memory usage
+swap usage
+
+pid,user,nicetime,%cpu,%mem, state, time,command,etime
+--------------------------------------------------
+
+how to check the cpu core?
+--> nproc or lscpu there we can find the number of core, socket, thread per core.
+
+
+--> to check cpu,memore,number of process running, blocked we can use 
+VMSTAT command
+
+--> to check specifically to CPU usage we can use mpstat
+---------------------------------------------------
+What all are the ways that we can follow to optimize the cpu bottleneck ?
+
+Identify the Culprit Process
+nice and renice the process
+----------------------------------------------------
+
+----Core-----
+❤️ A core is an independent processing unit inside the CPU.
+❤️ Modern CPUs have multiple cores (2, 4, 8, 16, etc.).
+❤️ Each core can execute its own task independently.
+-----------------------------------------------------
+-----------------------------------------------------
+❤️ Process
+A process is a running program.
+
+It has its own:
+Memory space
+Code
+Data
+System resources
+A process is isolated from other processes.
+-----------------------------------------------------
+-----------------------------------------------------
+Thread
+A thread is a lightweight sub-unit of a process.
+A process can have one or many threads (multithreading).
+Threads within a process:
+❤️ Share the same memory space
+❤️ Can communicate more easily
+-----------------------------------------------------
+Socket	
+❤️ A physical slot on the motherboard that holds a CPU chip
