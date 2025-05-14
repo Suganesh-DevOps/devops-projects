@@ -1,0 +1,44 @@
+---listing---
+Option	Description
+-l	Long listing format (shows permissions, size, owner, date)
+-a	Show all files, including hidden files (. and ..)
+-h	Human-readable sizes (use with -l, e.g., -lh)
+-t	Sort by modification time, newest first
+-r	Reverse the sort order
+-S	Sort by file size, largest first
+-R	Recursively list directories
+-d	List directory itself, not its contents
+-i	Show inode numbers
+-1	One entry per line (useful in scripts)
+-F	Append indicator (/ for dir, * for exec, etc.)
+-X	Sort by file extension
+-----------------------------------------------------------------------
+----Archive file & 🤐 zipping-------
+tar --> tape archive
+bundles multiple files and directories into one single archive file — without compressing them by default.
+
+tar -cf "filename"  " " " " --> to create a tar file
+tar -xf "filename" --> to extract a tar file
+tar -xvzf "filename" " "  " " --> Combining files and compressing
+
+zipping is take in place to compress the file size into smaller size for better performance either for downloading or uploading a file content.
+
+various zipping utiliities are
+--> gzip
+--> bzip2
+--> xz
+--> zip
+--> tar ( along with z for gzip
+          j for bzip2
+          J for xz )
+
+
+How Does Compression Work?
+Compression algorithms work in two main ways: lossless and lossy.
+
+📊 How Compression Works on a File ?
+Input
+Data Analysis
+Compression Algorithm
+Output
+-----------------------------------------------------------------------------------------------------------
