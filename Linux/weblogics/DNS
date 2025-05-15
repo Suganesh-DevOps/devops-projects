@@ -27,7 +27,7 @@ What is Stub Resolver ?
 It is A lightweight resolver in your OS or browser that just forwards requests to a recursive resolver.
 
 What is root DNS server ?
-oot DNS servers (e.g., .). example
+root DNS servers (e.g., .). example
 .com
 .net
 .in
@@ -50,13 +50,13 @@ Why caching is taking place in DNS ?
   --> Faster Domain Resolution
   --> AVoid network traffic
   --> Reducing load to DNS server
-  --> Fewer points of faikure
+  --> Fewer points of failure
   --> avoid latency
   ---> TTL  Flexibility for Admins
 
 What is the disadvantages of caching ?
    --> If  DNS has been changed to different IP we may have to revisit again 
-   --> if the cache has expired client will use oudated entries
+   --> if the cache has expired client will use oudated entries.
 
 ----Levels of caching----
 1. Browser level caching
@@ -74,4 +74,11 @@ In Linux:
 systemd-resolve --statistics
 in windows:
 ipconfig /displaydns
+------------------------------------------------------------------------------------------
+What is browser cache ?
+It is browser mechanism where it will saves the details about websites resources like images,videos,css file, html file, java scripts and so on.
+
+what is cookies?
+--> it is smaller unit file where which will contains the information about session token, ad tracking, settings prefrences.
+1st part cookies and 3rd party cookies from extrenal servers for ad tracking.
 ------------------------------------------------------------------------------------------
