@@ -1,0 +1,20 @@
+----IF/ELSE----
+file operators:-
+e - file exist
+s - file exist and not empty
+f - check it is a file
+d - is a directory
+w - file is writtable
+r - readable
+x - excutable
+
+string operations:-
+z - is a string
+n - string not empty
+
+arithemetic :-
+gt, lt, le, eq, ne
+
+logical operators:-
+&& , ||
+-----------------
