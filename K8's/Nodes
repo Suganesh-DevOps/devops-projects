@@ -1,0 +1,4 @@
+--Master Node--
+   1. ETCD
+      is a storage system which stores the data in a key-value format.
+      
