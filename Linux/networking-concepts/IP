@@ -108,6 +108,15 @@ A port is a 16-bit number (ranging from 0 to 65535)
 	sudo ufw enable "port"
 	sudo ufw deny "port"
 	
-	
+---------------------------------------------------------------------
+ip link --> to list or modify network interface
+route --> to list the routing table
+ip addr -->
+ip addr add 
+
+
+
+
+
 	
 	  
