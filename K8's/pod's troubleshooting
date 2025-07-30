@@ -1,0 +1,93 @@
+🚨 Scenario 1: Pod Stuck in CrashLoopBackOff
+Question:
+Your pod web-app is stuck in CrashLoopBackOff state. How do you troubleshoot and resolve the issue?
+
+Expected Actions:
+
+Check pod status: kubectl get pod web-app
+
+Describe pod: kubectl describe pod web-app
+
+View logs: kubectl logs web-app
+
+Check for readiness/liveness probe failures or misconfigured command
+
+Look for out-of-memory (OOMKilled) in events or container status
+
+⚠️ Scenario 2: Pod in Pending State
+Question:
+Your pod is in a Pending state for over 10 minutes. What could be the reason and how do you resolve it?
+
+Expected Actions:
+
+Check pod: kubectl describe pod <pod>
+
+Common reasons:
+
+No matching node (e.g., due to nodeSelector, taints)
+
+Resource requests too high (e.g., requesting 32 CPUs)
+
+No nodes in Ready state
+
+Check node resources: kubectl describe node, kubectl top node
+
+❌ Scenario 3: Container Image Pull Failure
+Question:
+Your pod is not starting and shows ImagePullBackOff. What steps would you take?
+
+Expected Actions:
+
+Describe pod: kubectl describe pod <pod>
+
+Look for image pull error in Events section
+
+Check:
+
+Image name/tag correctness
+
+Private registry access (need secret?)
+
+DockerHub rate limit hit?
+
+Use: kubectl create secret docker-registry for private image auth
+
+📶 Scenario 4: Readiness Probe Failing
+Question:
+A pod is running but traffic is not routed to it. You find the readiness probe is failing. How do you debug?
+
+Expected Actions:
+
+Describe pod to inspect readiness probe config
+
+Check logs: kubectl logs <pod>
+
+Try curl from inside pod: kubectl exec -it <pod> -- curl localhost:<port>
+
+Validate that the app starts but does not expose the expected endpoint
+
+💣 Scenario 5: OOMKilled Containers
+Question:
+One of your containers keeps getting killed and restarting. How would you identify if it's due to memory?
+
+Expected Actions:
+
+Describe pod: kubectl describe pod <pod>
+
+Look at container state:
+
+lastState.terminated.reason: OOMKilled
+
+Check container resource limits: resources.limits.memory
+
+Solution: Increase memory limit or fix app memory leak
+
+🔒 Scenario 6: Pod Cannot Access External Internet
+Question:
+Your application pod can't connect to the internet (e.g., calling an API or downloading a package). What would you check?
+
+Expected Actions:
+
+Exec into pod and run: curl, ping, nslookup
+
+Check if DNS resolution is working
